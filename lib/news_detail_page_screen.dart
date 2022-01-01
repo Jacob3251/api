@@ -14,8 +14,9 @@ class NewsDetailPage extends StatelessWidget {
         drawer: MainDrawer(),
         appBar: AppBar(title: Text('News API Integration',),backgroundColor: Colors.pinkAccent,
         actions: [
-          IconButton(onPressed: null, icon: Icon(Icons.add_alert),),
-          IconButton(onPressed: null, icon: Icon(Icons.account_circle_sharp),)
+          IconButton(onPressed: null, icon: Icon(Icons.add_alert,color: Colors.white,),),
+          IconButton(onPressed: null, icon: Icon(Icons.account_circle_sharp,color: Colors.white),)
+
         ],
         ),
 
