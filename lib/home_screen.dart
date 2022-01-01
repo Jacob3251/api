@@ -1,4 +1,5 @@
 import 'package:api/api_manager.dart';
+import 'package:api/news_detail_page_screen.dart';
 import 'package:api/news_model.dart';
 import 'package:flutter/material.dart';
 
@@ -22,9 +23,16 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('News Home'),
+      drawer: MainDrawer(),
+      appBar: AppBar(title: Text('News API Integration',),backgroundColor: Colors.pinkAccent,
+        actions: [
+          IconButton(onPressed: null, icon: Icon(Icons.add_alert),),
+          IconButton(onPressed: null, icon: Icon(Icons.account_circle_sharp),)
+
+        ],
       ),
+
+
       body: FutureBuilder<NewsModel>(
         future: _newsModel,
         builder: (context,snapshot){
@@ -34,17 +42,21 @@ class _HomeScreenState extends State<HomeScreen> {
               itemBuilder: (context,index){
                 var article = snapshot.data!.articles[index];
               return Container(
-                height: 200,
-                width: 200,
+                height: MediaQuery.of(context).size.height*.20,
+                width:  MediaQuery.of(context).size.width*.80,
                 margin: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                padding: EdgeInsets.symmetric(vertical: 15),
 
                 decoration: BoxDecoration(
-                  color: Colors.red,
+                  color: Colors.deepPurple.shade300,
                   borderRadius: BorderRadius.circular(15)
                 ),
                 child: ListTile(
-                  title: Text(article.title),
-                  subtitle: Text(article.author),
+                  title: Text(article.title,style: TextStyle(fontSize: 25,color: Colors.white),),
+                  subtitle: Text(article.author,style: TextStyle(fontSize: 18,color: Colors.white.withOpacity(.45)),),
+                  onTap: (){
+                    Navigator.push(context,MaterialPageRoute(builder: (snapshot)=>NewsDetailPage(ArticleInfo: article)));
+                  },
                 ),
               );
             },);

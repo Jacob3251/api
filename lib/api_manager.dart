@@ -4,6 +4,11 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 
 import 'news_model.dart';
+class NewsADetailModel{
+  final Article article;
+
+  NewsADetailModel({required this.article});
+}
 class ApiManager{
   Future<NewsModel> getdata()async{
     var client = http.Client();
