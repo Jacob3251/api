@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 margin: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
 
                 decoration: BoxDecoration(
-                  color: Colors.blue,
+                  color: Colors.red,
                   borderRadius: BorderRadius.circular(15)
                 ),
                 child: ListTile(
