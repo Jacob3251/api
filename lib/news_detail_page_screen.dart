@@ -23,7 +23,7 @@ class NewsDetailPage extends StatelessWidget {
         body: Container(
           margin: EdgeInsets.all(20),
           decoration: BoxDecoration(
-            color: Colors.deepPurple.withOpacity(.45),
+            color: Colors.grey.withOpacity(.45),
             borderRadius: BorderRadius.circular(15)
           ),
           height: MediaQuery.of(context).size.height*.95,
@@ -41,7 +41,7 @@ class NewsDetailPage extends StatelessWidget {
                     image: DecorationImage(
                         image:NetworkImage(ArticleInfo.urlToImage),
                         fit: BoxFit.cover,
-                        colorFilter: new ColorFilter.mode(Colors.white.withOpacity(.45), BlendMode.dstATop)
+                        //colorFilter: new ColorFilter.mode(Colors.white.withOpacity(.45), BlendMode.dstATop)
                     ),
 
                   ),
@@ -49,42 +49,32 @@ class NewsDetailPage extends StatelessWidget {
                 ),
                 Container(
                   margin: EdgeInsets.all(10),
-                  child: Text(ArticleInfo.title,style: TextStyle(fontSize: 35,fontWeight: FontWeight.w400),),
+                  child: Text(ArticleInfo.title,maxLines: 1,overflow: TextOverflow.ellipsis,style: TextStyle(fontSize: 25,fontWeight: FontWeight.w400),),
                 ),
                 Divider(thickness: 1.5,color: Colors.white,),
                 Container(
                   alignment: Alignment.topLeft,
-                  margin: EdgeInsets.only(left: 15,top: 30),
-                  child: Text('${ArticleInfo.author}' '...',style: TextStyle(fontSize: 25,fontWeight: FontWeight.w500,color: Colors.black),),
+                  margin: EdgeInsets.only(left: 15,top: 8),
+                  child: Text('${ArticleInfo.author}' '...',style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,color: Colors.black),),
                 ),
-                SizedBox(height: 30,),
+                //SizedBox(height: 5,),
                 Container(
                   alignment: Alignment.topLeft,
                   margin: EdgeInsets.only(left: 15),
                   child: Text('${ArticleInfo.publishedAt}' '...',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w400,color: Colors.black38),),
                 ),
-                SizedBox(height: 15,),
+                //SizedBox(height: 15,),
                 Divider(thickness: 1.5,color: Colors.white),
                 SizedBox(height: 15,),
                 Container(
                   alignment: Alignment.topLeft,
                   margin: EdgeInsets.only(left: 15),
-                  child: Text('${ArticleInfo.content}' '...',style: TextStyle(fontSize: 25,fontWeight: FontWeight.w400),),
+                  child: Text('${ArticleInfo.content}' '...',style: TextStyle(fontSize: 18,fontWeight: FontWeight.w400),),
                 ),
                 Container(
                   alignment: Alignment.topLeft,
                   margin: EdgeInsets.only(left: 15),
-                  child: Text('${ArticleInfo.content}' '...',style: TextStyle(fontSize: 25,fontWeight: FontWeight.w400),),
-                ),
-                Container(
-                  alignment: Alignment.topLeft,
-                  margin: EdgeInsets.only(left: 15),
-                  child: Text('${ArticleInfo.content}' '...',style: TextStyle(fontSize: 25,fontWeight: FontWeight.w400),),
-                ),
-                Container(
-                  alignment: Alignment.topLeft,
-                  margin: EdgeInsets.only(left: 15),
-                  child: Text('${ArticleInfo.content}' '...',style: TextStyle(fontSize: 25,fontWeight: FontWeight.w400),),
+                  child: Text('${ArticleInfo.content}' '...',style: TextStyle(fontSize: 18,fontWeight: FontWeight.w400),),
                 ),
 
 

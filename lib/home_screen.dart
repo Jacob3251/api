@@ -38,25 +38,53 @@ class _HomeScreenState extends State<HomeScreen> {
         builder: (context,snapshot){
           if(snapshot.hasData){
             return ListView.builder(
-              itemCount: snapshot.data!.articles.length,//adding the exclamatory mark because the data can be nullable so length is not fixed
+              itemCount: snapshot.data?.articles.length,//adding the exclamatory mark because the data can be nullable so length is not fixed
               itemBuilder: (context,index){
                 var article = snapshot.data!.articles[index];
               return Container(
-                height: MediaQuery.of(context).size.height*.20,
-                width:  MediaQuery.of(context).size.width*.80,
-                margin: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
-                padding: EdgeInsets.symmetric(vertical: 15),
-
+                margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: Colors.deepPurple.shade300,
-                  borderRadius: BorderRadius.circular(15)
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.grey.withOpacity(.45),
                 ),
-                child: ListTile(
-                  title: Text(article.title,style: TextStyle(fontSize: 25,color: Colors.white),),
-                  subtitle: Text(article.author,style: TextStyle(fontSize: 18,color: Colors.white.withOpacity(.45)),),
-                  onTap: (){
-                    Navigator.push(context,MaterialPageRoute(builder: (snapshot)=>NewsDetailPage(ArticleInfo: article)));
-                  },
+
+                child: Column(
+                  children: [
+                    Container(
+                      height: MediaQuery.of(context).size.height*.20,
+                      width:  double.infinity,
+                      margin: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                      padding: EdgeInsets.symmetric(vertical: 15),
+
+                      decoration: BoxDecoration(
+                        color: Colors.deepPurple.shade300,
+                        image: DecorationImage(
+                          image: NetworkImage(article.urlToImage),
+                              fit: BoxFit.cover,
+                        ),
+                        //borderRadius: BorderRadius.circular(15)
+                      ),
+
+                    ),
+                   Container(
+                     child:  ListTile(
+                       title: Column(
+                         children: [
+                           Text(article.title, maxLines: 1,
+                             overflow: TextOverflow.ellipsis,style: TextStyle(fontSize: 20,color: Colors.black),),
+                           SizedBox(height: 10,)
+                         ],
+                       ),
+                       subtitle: Text(article.author,
+                         maxLines: 1,
+                         overflow: TextOverflow.ellipsis,
+                         style: TextStyle(fontSize: 18,color: Colors.black.withOpacity(.45)),),
+                       onTap: (){
+                         Navigator.push(context,MaterialPageRoute(builder: (snapshot)=>NewsDetailPage(ArticleInfo: article)));
+                       },
+                     ),
+                   )
+                  ],
                 ),
               );
             },);
