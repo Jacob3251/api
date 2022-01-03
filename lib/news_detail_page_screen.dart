@@ -21,10 +21,10 @@ class NewsDetailPage extends StatelessWidget {
         ),
 
         body: Container(
-          margin: EdgeInsets.all(20),
+          margin: EdgeInsets.only(top: 20,left: 20,right: 20),
           decoration: BoxDecoration(
             color: Colors.grey.withOpacity(.45),
-            borderRadius: BorderRadius.circular(15)
+            borderRadius: BorderRadius.only(topRight: Radius.circular(15),topLeft: Radius.circular(15))
           ),
           height: MediaQuery.of(context).size.height*.95,
           width: MediaQuery.of(context).size.width*.95,
@@ -70,6 +70,36 @@ class NewsDetailPage extends StatelessWidget {
                   alignment: Alignment.topLeft,
                   margin: EdgeInsets.only(left: 15),
                   child: Text('${ArticleInfo.content}' '...',style: TextStyle(fontSize: 18,fontWeight: FontWeight.w400),),
+                ),
+                Container(
+                  alignment: Alignment.topLeft,
+                  margin: EdgeInsets.only(left: 15),
+                  child: Text('${ArticleInfo.content}' '...',style: TextStyle(fontSize: 18,fontWeight: FontWeight.w400),),
+                ),
+
+
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  alignment: Alignment.topLeft,
+                  margin: EdgeInsets.only(left: 15),
+                  child: Text('${ArticleInfo.content}' '...',style: TextStyle(fontSize: 18,fontWeight: FontWeight.w400),),
+                ),
+
+
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  alignment: Alignment.topLeft,
+                  margin: EdgeInsets.only(left: 15),
+                  child: Text('${ArticleInfo.content}' '...',style: TextStyle(fontSize: 18,fontWeight: FontWeight.w400),),
+                ),
+
+
+                SizedBox(
+                  height: 10,
                 ),
                 Container(
                   alignment: Alignment.topLeft,
